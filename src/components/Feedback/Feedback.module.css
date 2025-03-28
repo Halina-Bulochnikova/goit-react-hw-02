@@ -1,0 +1,9 @@
+.FeedbackBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.FeedbackText {
+    font-size: 18px;
+    font-weight: bold;
+}

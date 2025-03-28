@@ -1,9 +1,11 @@
+import css from "../Options/Options.module.css";
+
 function Options({ onFeedback, totalFeedback }) {
   return (
-    <div>
-      <button onClick={() => onFeedback("good")}>Good</button>
-      <button onClick={() => onFeedback("neutral")}>Neutral</button>
-      <button onClick={() => onFeedback("bad")}>Bad</button>
+    <div className={css.OptionBlock}>
+      <button className={css.OptionBtn} onClick={() => onFeedback("good")}>Good</button>
+      <button className={css.OptionBtn} onClick={() => onFeedback("neutral")}>Neutral</button>
+      <button className={css.OptionBtn} onClick={() => onFeedback("bad")}>Bad</button>
       {totalFeedback > 0 && (
         <button onClick={() => onFeedback("reset")}>Reset</button>
       )}

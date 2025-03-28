@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import Options from "../../components/Options/Options.jsx";
 import Feedback from "../../components/Feedback/Feedback.jsx";
-import FeedbackNotification from "../FeedbackNotification/FeedbackNotification.jsx";
+import Notification from "../Notification/Notification.jsx";
 import Description from "../../components/Description/Description.jsx";
+import css from "../../components/App/App.module.css";
 
-function App() {
+const App = () => {
   const [feedback, setFeedback] = useState(() => {
     return (
       JSON.parse(localStorage.getItem("feedback")) || {
@@ -40,7 +41,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className={css.container}>
       <Description></Description>
       <Options onFeedback={updateFeedback} totalFeedback={totalFeedback} />
       {totalFeedback > 0 ? (
@@ -49,8 +50,9 @@ function App() {
           totalFeedback={totalFeedback}
           positiveFeedback={positiveFeedback}
         />
-      ) : (
-        <FeedbackNotification />
+      ) :
+      (
+        <Notification />
       )}
     </div>
   );
